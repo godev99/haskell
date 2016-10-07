@@ -1,5 +1,56 @@
 import Data.Char
 
+-- Exercice 1
+square :: [Int]
+square = [x*2 | x <- [0..100]]
+
+
+-- Exercice 2
+grid :: Int -> Int -> [(Int,Int)]
+grid m n = [(x,y) | x <- [0..n], y <- [0..m]]
+
+
+-- Exercice 3
+newsquare :: Int -> [(Int,Int)]
+newsquare n = [(v,k) | (v,k) <- grid n n, v /= k]
+
+
+-- Exercice 4
+replicate :: Int -> a -> [a]
+replicate n a = [a | x <- [1..n]]
+
+
+-- Exercice 5
+pyth :: Int -> [(Int,Int,Int)]
+pyth n = [(x,y,z) | x <- [1..n], y <- [1..n], z <- [1..n], (x*x + y*y) == z*z]
+
+
+-- Exercice 6
+divisor :: Int -> [Int]
+divisor n = [x | x <- [1..n-1], n `mod` x == 0]
+
+perfect :: Int -> [Int]
+perfect n = [x | x <- [1..n], sum (divisor x) == x]
+
+
+-- Exercice 7
+concat' = concat [[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
+
+
+-- Exercice 8
+find :: Eq a => a -> [(a,b)] -> [b]
+find k t = [v | (k',v) <- t, k == k']
+
+positions' :: Eq a => a -> [a] -> [Int]
+positions' x xs = find x (zip xs [1..n])
+          where n = length xs
+          
+-- Exercice 9
+scalarproduct :: [Int] -> [Int] -> Int
+scalarproduct x y = sum (concat [x,y])
+
+
+-- Exercice 10
 lowers :: String -> Int
 lowers xs = length [x | x <- xs, x >= 'A' && x <= 'z']
 
