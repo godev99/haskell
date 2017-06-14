@@ -17,6 +17,7 @@ last [] = 0
 -- last xs = xs !! (length xs - 1)
 last xs = head (reverse xs) 
 
+init :: [t] -> [t]
 init [] = []
 --init xs = take (length xs - 1) xs
 init xs = reverse (tail (reverse xs)) 
