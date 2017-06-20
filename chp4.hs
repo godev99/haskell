@@ -45,7 +45,7 @@ mult = \x -> (\y -> (\z -> x*y*z))
 
 luhnDouble :: Int -> Int
 luhnDouble x | x < 5 = x+x
-luhnDouble x | x >= 5 = x+x-9
+			 | otherwise = x+x-9
 
 luhn :: Int -> Int -> Int -> Int -> Bool
 luhn a b c d = if mod ((luhnDouble a) + b + (luhnDouble c) + d) 10 > 0 
